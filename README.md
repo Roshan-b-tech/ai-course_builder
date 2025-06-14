@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# AI Course Builder
+
+An intelligent online learning platform that helps users create, manage, and take courses with AI-powered features.
+
+## Features
+
+- **Course Creation**: Create new courses with AI assistance
+- **Course Management**: Edit and manage your courses
+- **Learning Dashboard**: Track your learning progress
+- **AI Tools**: Access AI-powered learning tools
+- **Course Exploration**: Browse and discover new courses
+- **User Authentication**: Secure user authentication with Clerk
+- **Progress Tracking**: Monitor your learning progress
+- **Responsive Design**: Works on both desktop and mobile devices
+
+## Tech Stack
+
+- **Frontend**: Next.js 15.3.3
+- **UI Components**: Radix UI, Tailwind CSS
+- **Authentication**: Clerk
+- **Database**: Neon Database
+- **AI Integration**: Google GenAI
+- **Styling**: Tailwind CSS with custom components
+- **State Management**: React Context API
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js (Latest LTS version recommended)
+- npm or yarn
+- A Clerk account for authentication
+- A Neon Database account
+- Google AI API access
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone [repository-url]
+cd ai-course_builder
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Set up environment variables:
+Create a `.env.local` file in the root directory with the following variables:
+```env
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+DATABASE_URL=your_neon_database_url
+GOOGLE_AI_API_KEY=your_google_ai_api_key
+```
+
+4. Run the development server:
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+ai-course_builder/
+├── app/                    # Next.js app directory
+│   ├── course/            # Course-related pages
+│   ├── workspace/         # Workspace components
+│   └── api/               # API routes
+├── components/            # Reusable components
+│   └── ui/               # UI components
+├── context/              # React context providers
+├── hooks/                # Custom React hooks
+├── lib/                  # Utility functions
+└── public/              # Static assets
+```
 
-## Learn More
+## Features in Detail
 
-To learn more about Next.js, take a look at the following resources:
+### Course Creation
+- Create new courses with AI assistance
+- Customize course content and structure
+- Add chapters and learning materials
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Learning Dashboard
+- Track your enrolled courses
+- Monitor learning progress
+- Access course materials
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### AI Tools
+- AI-powered course generation
+- Smart content recommendations
+- Learning assistance
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Support
+
+For support, please open an issue in the GitHub repository or contact the development team.
