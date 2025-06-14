@@ -53,41 +53,56 @@ const ChapterContent = ({ courseInfo, refreshData }) => {
 
     return (
         <div className='p-10'>
-            <div className='flex justify-between items-center'>
-                <h2 className='font-bold text-2xl'> {selectedChapterIndex + 1}. {courseContent?.[selectedChapterIndex]?.courseData?.chapterName}</h2>
-                {!completedChapter?.includes(selectedChapterIndex) ? <Button onClick={() => markChapterCompleted()} disabled={loading}> {loading ? <Loader2Icon className='animate-spin' /> : <CheckCircle />} Mark as Completed </Button> :
-                    <Button variant="outline" onClick={markInCompleteChapter} disabled={loading}> {loading ? <Loader2Icon className='animate-spin' /> : <X />} Mark Incomplete </Button>}
+            <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-3 md:gap-0 mb-2">
+                <h2 className="font-bold text-xl md:text-2xl break-words">
+                    {selectedChapterIndex + 1}. {courseContent?.[selectedChapterIndex]?.courseData?.chapterName}
+                </h2>
+                {(!completedChapter?.includes(selectedChapterIndex)) ? (
+                    <Button
+                        onClick={() => markChapterCompleted()}
+                        disabled={loading}
+                        className="w-full md:w-auto mt-2 md:mt-0"
+                    >
+                        {loading ? <Loader2Icon className="animate-spin" /> : <CheckCircle />} Mark as Completed
+                    </Button>
+                ) : (
+                    <Button
+                        variant="outline"
+                        onClick={markInCompleteChapter}
+                        disabled={loading}
+                        className="w-full md:w-auto mt-2 md:mt-0"
+                    >
+                        {loading ? <Loader2Icon className="animate-spin" /> : <X />} Mark Incomplete
+                    </Button>
+                )}
             </div>
 
-            <h2 className='my-2 font-bold text-lg'>{courseContent?.[selectedChapterIndex]?.courseData?.chapterDescription}</h2>
-            <h2 className='my-2 font-bold text-lg'>Related Videos 🎬</h2>
+            <h2 className='my-2 font-bold text-lg break-words'>{courseContent?.[selectedChapterIndex]?.courseData?.chapterDescription}</h2>
+            <h2 className='my-2 font-bold text-lg break-words'>Related Videos 🎬</h2>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
                 {videoData?.map((video, index) => index < 2 && (
-                    <div key={index}>
-                        <YouTube videoId={video?.videoId}
+                    <div key={index} className="w-full aspect-video bg-black rounded-lg overflow-hidden flex items-center justify-center">
+                        <YouTube
+                            videoId={video?.videoId}
+                            className="w-full h-full"
                             opts={{
-                                height: '260',
-                                width: '460',
-                                borderRadius: 15,
+                                width: '100%',
+                                height: '100%',
+                                playerVars: { responsive: 1 }
                             }}
                         />
-
                     </div>
                 ))}
             </div>
             <div className='mt-10'>
                 {topics?.map((topic, index) => (
-                    <div key={index} className='mt-10 p-5 bg-secondary rounded-lg' >
-                        <h2 className='font-bold text-2xl text-primary'> {index + 1}. {topic?.topic}</h2>
-                        {/* <p>{topic?.content}</p> */}
-                        <div dangerouslySetInnerHTML={{ __html: topic?.content }}
-                            style={{
-                                lineHeight: '2.5',
-
-                            }}
-                        >
-
-                        </div>
+                    <div key={index} className='mt-10 p-5 bg-secondary rounded-lg'>
+                        <h2 className='font-bold text-2xl text-primary break-words'> {index + 1}. {topic?.topic}</h2>
+                        <div
+                            className="overflow-x-auto break-words"
+                            dangerouslySetInnerHTML={{ __html: topic?.content }}
+                            style={{ lineHeight: '2.5' }}
+                        />
                     </div>
                 ))}
             </div>
